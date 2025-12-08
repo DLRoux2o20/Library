@@ -77,7 +77,9 @@ p,
 h1,
 h2,
 span,
-button {
+button,
+label,
+input {
 	font-family: "Open Sans", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
@@ -104,6 +106,26 @@ span {
 	font-weight: 600;
 }
 
+input:not([type="checkbox"]) {
+	outline: 5px solid var(--grey);
+	border: none;
+	border-radius: 10px;
+	padding-inline: 0.5em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 1rem;
+}
+
+input[type="tel"] {
+	width: 80px;
+	text-align: center;
+}
+
+input:focus {
+	outline-color: var(--light-blue);
+}
+
 form {
 	/* display: none; */
 	position: fixed;
@@ -121,7 +143,6 @@ form {
 
 .flex {
 	display: flex;
-	justify-content: space-between;
 }
 
 .card {
@@ -141,6 +162,7 @@ form {
 	margin-bottom: 1em;
 	font-weight: 500;
 	color: var(--black);
+	justify-content: space-between;
 }
 
 .card .card-line:last-of-type {
@@ -155,6 +177,15 @@ form {
 	padding-block: 0.5em;
 	padding-inline: 0.6em;
 	font-weight: 700;
+}
+
+.form-line {
+	justify-content: space-between;
+}
+
+.form-line label {
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 #main-div {
@@ -224,4 +255,11 @@ form {
 #form-close-div i {
 	font-weight: bold;
 	font-size: 1.25rem;
+}
+
+#form-content {
+	flex-direction: column;
+	padding-inline: 2em;
+	margin-top: 3em;
+	gap: 2em;
 }
