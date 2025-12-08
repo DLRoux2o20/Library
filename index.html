@@ -82,16 +82,25 @@
 				</div>
 				<div class="flex" id="form-content">
 					<div class="flex form-line">
-						<label for="title">Book Title:</label><input type="text" id="title">
+						<label for="title">Book Title:</label
+						><input type="text" id="title" autocomplete="off" />
 					</div>
 					<div class="flex form-line">
-						<label for="author">Author:</label><input type="text" id="author">
+						<label for="author">Author:</label><input type="text" id="author" autocomplete="off" />
 					</div>
 					<div class="flex form-line">
-						<label for="pages">Number of Pages:</label><input type="tel" id="pages" maxlength="5">
+						<label for="pages">Number of Pages:</label>
+						<div class="flex" id="pages-div">
+							<input type="tel" id="pages" maxlength="5" autocomplete="off" />
+						</div>
 					</div>
 					<div class="flex form-line">
-						<label for="read">Has been read:</label><input type="checkbox" id="read">
+						<label for="read">Has been read:</label>
+						<div class="flex" id="checkbox-div">
+							<input type="checkbox" id="read" /><span id="checkbox-span"
+								>Not Read</span
+							>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -99,3 +108,5 @@
 		<script src="main.js"></script>
 	</body>
 </html>
+
+<!-- <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Pixel perfect - Flaticon</a> -->

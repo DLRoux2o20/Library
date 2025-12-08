@@ -117,9 +117,54 @@ input:not([type="checkbox"]) {
 	font-size: 1rem;
 }
 
+input:not([type="checkbox"]), #pages-div, #checkbox-div {
+	width: 180px;
+}
+
 input[type="tel"] {
 	width: 80px;
 	text-align: center;
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	background-color: var(--red);
+	border-radius: 50%;
+	cursor: pointer;
+	align-content: center;
+	justify-content: center;
+}
+
+input[type="checkbox"]:checked {
+	appearance: none;
+	width: 30px;
+	height: 30px;
+	background-color: var(--green);
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:not(:checked)::after {
+	content: "\2716";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--white);
+	font-size: 1.2rem;
+}
+
+input[type="checkbox"]:checked::after {
+	content: url("./check.png");
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--white);
+	font-size: 1.5rem;
 }
 
 input:focus {
@@ -262,4 +307,14 @@ form {
 	padding-inline: 2em;
 	margin-top: 3em;
 	gap: 2em;
+}
+
+#checkbox-div {
+	align-items: center;
+	justify-content: left;
+	gap: 0.75em;
+}
+
+#checkbox-span {
+	font-size: 1.2rem;
 }
