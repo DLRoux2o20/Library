@@ -121,7 +121,7 @@ input:not([type="checkbox"]), #pages-div, #checkbox-div {
 	width: 180px;
 }
 
-input[type="tel"] {
+input[type="number"] {
 	width: 80px;
 	text-align: center;
 }
@@ -167,8 +167,22 @@ input[type="checkbox"]:checked::after {
 	font-size: 1.5rem;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 input:focus {
 	outline-color: var(--light-blue);
+}
+
+input:invalid {
+	outline-color: var(--red);
 }
 
 form {
@@ -180,6 +194,16 @@ form {
 	left: 0;
 	background-color: rgba(36, 32, 36, 0.8);
 	align-content: center;
+}
+
+hr {
+	margin-block: 4.5em;
+	width: 80%;
+	height: 5px;
+	background-color: var(--grey);
+	border: none;
+	border-radius: 10px;
+	margin-inline: auto;
 }
 
 .grid {
@@ -260,7 +284,7 @@ form {
 
 #form-div {
 	width: max(30%, 350px);
-	height: 80%;
+	height: 600px;
 	background-color: var(--white);
 	margin-inline: auto;
 	border-radius: 20px;
@@ -317,4 +341,17 @@ form {
 
 #checkbox-span {
 	font-size: 1.2rem;
+}
+
+#form-submit-button {
+	display: block;
+	width: 30%;
+	height: 50px;
+	background-color: #19ac42;
+	color: white;
+	margin-inline: auto;
+	border: none;
+	border-radius: 10px;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
