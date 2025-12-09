@@ -1,8 +1,13 @@
 let addBookButton = document.getElementById("add-book-button");
 let form = document.querySelector("form");
+let closeFormButton = document.getElementById("form-close-button");
+let formSubmitButton = document.getElementById("form-submit-button");
+
 let readCheckbox = document.getElementById("read");
 let readCheckboxText = document.getElementById("checkbox-span");
-let closeFormButton = document.getElementById("form-close-div");
+let titleInput = document.getElementById("title");
+let authorInput = document.getElementById("author");
+let pagesInput = document.getElementById("pages");
 
 readCheckbox.addEventListener("click", function () {
 	if (readCheckbox.checked) {
@@ -15,9 +20,19 @@ readCheckbox.addEventListener("click", function () {
 closeFormButton.addEventListener("click", closeForm);
 
 function closeForm() {
-    form.style.display = "none";
+	form.classList.toggle("hidden");
 }
 
 addBookButton.addEventListener("click", function openForm() {
-    form.style.display = "block";
+	form.classList.toggle("hidden");
 });
+
+form.addEventListener("submit", submitForm);
+
+function submitForm(event) {
+	event.preventDefault();
+    titleInput.textContent = "";
+    authorInput.textContent = "";
+    pagesInput.textContent = "";
+	closeForm();
+}
