@@ -22,15 +22,15 @@
 		<div class="grid" id="main-div">
 			<div class="flex card">
 				<div class="flex card-line">
-					<span class="left">Title:</span
-					><span class="right">The Great Dance</span>
+					<span class="card-line-left">Title:</span
+					><span class="card-line-right">The Great Dance</span>
 				</div>
 				<div class="flex card-line">
-					<span class="left">Author:</span
-					><span class="right">J.D. Rowling</span>
+					<span class="card-line-left">Author:</span
+					><span class="card-line-right">J.D. Rowling</span>
 				</div>
 				<div class="flex card-line">
-					<span class="left">Pages:</span><span class="right">295</span>
+					<span class="card-line-left">Pages:</span><span class="right">295</span>
 				</div>
 				<div class="flex card-line">
 					<button type="button" class="card-button card-button-read">
@@ -44,15 +44,16 @@
 			<div class="flex card"></div>
 			<div class="flex card">
 				<div class="flex card-line">
-					<span class="left">Title:</span
-					><span class="right">Tread of The Tropper</span>
+					<span class="card-line-left">Title:</span
+					><span class="card-line-right">Tread of The Tropper</span>
 				</div>
 				<div class="flex card-line">
-					<span class="left">Author:</span
-					><span class="right">Derick Smuts</span>
+					<span class="card-line-left">Author:</span
+					><span class="card-line-right">Derick Smuts</span>
 				</div>
 				<div class="flex card-line">
-					<span class="left">Pages:</span><span class="right">344</span>
+					<span class="card-line-left">Pages:</span
+					><span class="card-line-right">344</span>
 				</div>
 				<div class="flex card-line">
 					<button
@@ -69,10 +70,10 @@
 			</div>
 			<div class="flex card"></div>
 			<button type="button" id="add-book-button">
-				Add a book <span id="plus-sign">+</span>
+				Add a book <span id="plus-sign"><i class="fa fa-plus"></i></span>
 			</button>
 		</div>
-		<form>
+		<form class="hidden">
 			<div id="form-div">
 				<div id="form-heading-div">
 					<h2 id="form-heading">Add a book</h2>
@@ -105,7 +106,7 @@
 					<div class="flex form-line">
 						<label for="read">Has been read:</label>
 						<div class="flex" id="checkbox-div">
-							<input type="checkbox" id="read" /><span id="checkbox-span"
+							<input type="checkbox" class="flex" id="read" /><span id="checkbox-span"
 								>Not Read</span
 							>
 						</div>

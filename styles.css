@@ -115,14 +115,16 @@ input:not([type="checkbox"]) {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-size: 1rem;
+	font-weight: 600;
 }
 
 input:not([type="checkbox"]), #pages-div, #checkbox-div {
 	width: 180px;
+	height: 32px;
 }
 
 input[type="number"] {
-	width: 80px;
+	width: 80px; 
 	text-align: center;
 }
 
@@ -134,14 +136,12 @@ input[type="checkbox"] {
 	background-color: var(--red);
 	border-radius: 50%;
 	cursor: pointer;
-	align-content: center;
+	align-items: center;
 	justify-content: center;
 }
 
 input[type="checkbox"]:checked {
 	appearance: none;
-	width: 30px;
-	height: 30px;
 	background-color: var(--green);
 	border-radius: 50%;
 	cursor: pointer;
@@ -235,6 +235,13 @@ hr {
 	font-weight: 500;
 	color: var(--black);
 	justify-content: space-between;
+	gap: 1em;
+}
+
+.card-line-right {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .card .card-line:last-of-type {
@@ -251,8 +258,13 @@ hr {
 	font-weight: 700;
 }
 
+.fa-plus {
+	font-size: 0.9rem;
+}
+
 .form-line {
 	justify-content: space-between;
+	gap: 1em;
 }
 
 .form-line label {
@@ -279,6 +291,7 @@ hr {
 	width: 150px;
 	height: 150px;
 	border: none;
+	padding-left: 10px;
 	background-color: var(--light-blue);
 	color: var(--white);
 	font-size: 1.2rem;
@@ -286,7 +299,7 @@ hr {
 }
 
 #form-div {
-	width: max(30%, 350px);
+	width: max(30%, 470px);
 	height: 600px;
 	background-color: var(--white);
 	margin-inline: auto;
@@ -314,7 +327,7 @@ hr {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 8%;
+	width: max(8%, 38px);
 	height: 100%;
 	background-color: var(--red);
 	border-radius: 0;
@@ -360,3 +373,45 @@ hr {
 	font-size: 1.5rem;
 	font-weight: 700;
 }
+
+@media only screen and (max-width: 550px) {
+	input:not([type="checkbox"]) {
+		font-size: 0.8rem;
+		outline-width: 4px;
+	}
+	input:not([type="checkbox"]), #pages-div, #checkbox-div {
+		width: 112px;
+		height: 24px;
+	}
+	input[type="checkbox"] {
+		width: 25px;
+		height: 25px;
+	}
+	input[type="checkbox"]:not(:checked)::after {
+		font-size: 1.05rem;
+		transform: translate(-48%, -52%);
+	}
+	input[type="checkbox"]:checked::after {
+		font-size: 1.05rem;
+		line-height: 0.8;
+	}
+	input[type="number"] {
+		width: 60px;
+	}
+	.form-line label {
+		font-size: 1.15rem;
+	}
+	#form-div {
+		width: 350px;
+	}
+	#checkbox-div {
+		gap: 0.5em;
+	}
+	#checkbox-span {
+		font-size: 1.1rem;
+	}
+}
+
+/* @media only screen and (max-height: 640px) {
+	
+} */
