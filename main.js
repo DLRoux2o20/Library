@@ -20,19 +20,21 @@ readCheckbox.addEventListener("click", function () {
 closeFormButton.addEventListener("click", closeForm);
 
 function closeForm() {
-	form.classList.toggle("hidden");
+	form.classList.add("hidden");
+	titleInput.value = "";
+	authorInput.value = "";
+	pagesInput.value = "";
+	readCheckbox.checked = false;
+	readCheckboxText.textContent = "Not Read";
 }
 
 addBookButton.addEventListener("click", function openForm() {
-	form.classList.toggle("hidden");
+	form.classList.remove("hidden");
 });
 
 form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
 	event.preventDefault();
-    titleInput.textContent = "";
-    authorInput.textContent = "";
-    pagesInput.textContent = "";
 	closeForm();
 }
