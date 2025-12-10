@@ -264,6 +264,7 @@ hr {
 
 .form-line {
 	justify-content: space-between;
+	align-items: center;
 	gap: 1em;
 }
 
@@ -344,6 +345,12 @@ hr {
 	font-size: 1.25rem;
 }
 
+#form-flex-div {
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+}
+
 #form-content {
 	flex-direction: column;
 	padding-inline: 2em;
@@ -412,6 +419,65 @@ hr {
 	}
 }
 
-/* @media only screen and (max-height: 640px) {
-	
-} */
+@media only screen and (max-height: 640px) {
+	hr {
+		width: 4px;
+		height: 200px;
+		margin: 0 3em;
+	}
+	input:not([type="checkbox"]) {
+		font-size: 0.8rem;
+		outline-width: 3px;
+	}
+	input:not([type="checkbox"]), #pages-div, #checkbox-div {
+		width: 120px;
+		height: 25px;
+	}
+	input[type="number"] {
+		width: 60px;
+	}
+	input[type="checkbox"] {
+		width: 25px;
+		height: 25px;
+	}
+	input[type="checkbox"]:not(:checked)::after {
+		font-size: 1.05rem;
+		transform: translate(-48%, -52%);
+	}
+	input[type="checkbox"]:checked::after {
+		font-size: 1.05rem;
+		line-height: 0.8;
+	}
+	.form-line {
+		gap: 1.75em;
+	}
+	.form-line label {
+		font-size: 1.2rem;
+	}
+	#form-div {
+		width: 90%;
+		height: 360px;
+	}
+	#form-flex-div {
+		flex-direction: row;
+		height: 318px;
+		justify-content: space-evenly;
+		align-items: center;
+		padding-inline: 3em;
+	}
+	#form-content {
+		gap: 1.5em;
+		margin: 0;
+		padding: 0;
+	}
+	#checkbox-div {
+		gap: 0.5em;
+	}
+	#checkbox-span {
+		font-size: 1.1rem;
+	}
+	#form-submit-button {
+		width: 20%;
+		margin: 0;
+	}
+}
