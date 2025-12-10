@@ -79,7 +79,8 @@ h2,
 span,
 button,
 label,
-input {
+input,
+a {
 	font-family: "Open Sans", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
@@ -118,13 +119,15 @@ input:not([type="checkbox"]) {
 	font-weight: 600;
 }
 
-input:not([type="checkbox"]), #pages-div, #checkbox-div {
+input:not([type="checkbox"]),
+#pages-div,
+#checkbox-div {
 	width: 180px;
 	height: 32px;
 }
 
 input[type="number"] {
-	width: 80px; 
+	width: 80px;
 	text-align: center;
 }
 
@@ -169,12 +172,12 @@ input[type="checkbox"]:checked::after {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 
 input:invalid {
@@ -203,6 +206,14 @@ hr {
 	border: none;
 	border-radius: 10px;
 	margin-inline: auto;
+}
+
+a {
+	position: absolute;
+	bottom: 2px;
+	left: 5px;
+	text-decoration: none;
+	color: var(--black);
 }
 
 .grid {
@@ -386,7 +397,9 @@ hr {
 		font-size: 0.8rem;
 		outline-width: 4px;
 	}
-	input:not([type="checkbox"]), #pages-div, #checkbox-div {
+	input:not([type="checkbox"]),
+	#pages-div,
+	#checkbox-div {
 		width: 112px;
 		height: 24px;
 	}
@@ -429,7 +442,9 @@ hr {
 		font-size: 0.8rem;
 		outline-width: 3px;
 	}
-	input:not([type="checkbox"]), #pages-div, #checkbox-div {
+	input:not([type="checkbox"]),
+	#pages-div,
+	#checkbox-div {
 		width: 120px;
 		height: 25px;
 	}
