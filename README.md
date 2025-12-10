@@ -1,4 +1,4 @@
-Lessons:
+Lessons learnt from making website:
 
 1. To create a custom icon for the content of a ::before or ::after, use url() for a downloaded image of the icon or use the unicode of the icon form websites like Font Awesome, but put a \ before the unicode and inside everything "".
 

@@ -117,10 +117,16 @@ function createBookCards() {
 			readButton.textContent = ` ${obj.read}`;
 			readButton.prepend(readButtonIcon);
 			readButton.addEventListener("click", function (event) {
-				let cardOfObj = event.target.parentElement.parentElement;
+				if (event.target.tagName === "I") {
+					let readButton = event.target.parentElement;
+				} else {
+					let readButton = event.target;
+				}
+
+				let cardOfObj = readButton.parentElement.parentElement;
 				myLibrary[
 					myLibrary.findIndex((book) => book.id === cardOfObj.dataset.id)
-				].switchReadStatus(cardOfObj, event.target);
+				].switchReadStatus(cardOfObj, readButton);
 			});
 
 			let deleteButton = document.createElement("button");
