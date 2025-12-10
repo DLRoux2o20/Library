@@ -9,3 +9,5 @@ Lessons:
 4. Use autocomplete="of" attribute for inputs to disable them from showing popups when clicked to autocomplete the input.
 
 5. Use parentNode.prepend(childNode) to append an element as the first child to a parent element.
+
+6. Use Array.from() when using .forEach() to loop through a node list and add event listeners.

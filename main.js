@@ -1,11 +1,6 @@
 let mainDiv = document.getElementById("main-div");
 
 let addBookButton = document.getElementById("add-book-button");
-let deleteButtons = new Array(
-	document.getElementsByClassName("card-button-delete")
-);
-let readButtons = document.getElementsByClassName("card-button-read");
-
 let form = document.querySelector("form");
 let closeFormButton = document.getElementById("form-close-button");
 let formSubmitButton = document.getElementById("form-submit-button");
@@ -65,6 +60,21 @@ function Book(title, author, pages, read) {
 	this.id = crypto.randomUUID();
 }
 
+Book.prototype.switchReadStatus = function (cardOfObjToSwitch, readButton) {
+	let objToSwitch =
+		myLibrary[
+			myLibrary.findIndex((book) => book.id === cardOfObjToSwitch.dataset.id)
+		];
+
+	if (objToSwitch.read === "Not Read") {
+		objToSwitch.read = "Read";
+		readButton.innerHTML = "<i class='fa-solid fa-check'></i> Read";
+	} else {
+		objToSwitch.read = "Not Read";
+		readButton.innerHTML = "<i class='fa-solid fa-x'></i> Not Read";
+	}
+};
+
 function addBookToLibrary(title, author, pages, read) {
 	let book = new Book(title, author, pages, read);
 	myLibrary.push(book);
@@ -72,7 +82,10 @@ function addBookToLibrary(title, author, pages, read) {
 
 function deleteBook(event) {
 	let cardToDelete = event.target.parentElement.parentElement;
-	myLibrary.splice(myLibrary.findIndex((book) => book.id === cardToDelete.dataset.id), 1);
+	myLibrary.splice(
+		myLibrary.findIndex((book) => book.id === cardToDelete.dataset.id),
+		1
+	);
 	cardToDelete.remove();
 }
 
@@ -101,8 +114,14 @@ function createBookCards() {
 				"fa-solid",
 				obj.read === "Not Read" ? "fa-x" : "fa-check"
 			);
-			readButton.textContent = " " + obj.read;
+			readButton.textContent = ` ${obj.read}`;
 			readButton.prepend(readButtonIcon);
+			readButton.addEventListener("click", function (event) {
+				let cardOfObj = event.target.parentElement.parentElement;
+				myLibrary[
+					myLibrary.findIndex((book) => book.id === cardOfObj.dataset.id)
+				].switchReadStatus(cardOfObj, event.target);
+			});
 
 			let deleteButton = document.createElement("button");
 			deleteButton.setAttribute("type", "button");
