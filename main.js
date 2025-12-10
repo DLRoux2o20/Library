@@ -1,6 +1,11 @@
 let mainDiv = document.getElementById("main-div");
 
 let addBookButton = document.getElementById("add-book-button");
+let deleteButtons = new Array(
+	document.getElementsByClassName("card-button-delete")
+);
+let readButtons = document.getElementsByClassName("card-button-read");
+
 let form = document.querySelector("form");
 let closeFormButton = document.getElementById("form-close-button");
 let formSubmitButton = document.getElementById("form-submit-button");
@@ -63,7 +68,12 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
 	let book = new Book(title, author, pages, read);
 	myLibrary.push(book);
-	console.log(myLibrary); // Remove later
+}
+
+function deleteBook(event) {
+	let deletedCard = event.target.parentElement.parentElement;
+	myLibrary.splice(myLibrary.findIndex((book) => book.id === deletedCard.dataset.id), 1);
+	console.log(myLibrary);
 }
 
 function createBookCards() {
@@ -73,6 +83,7 @@ function createBookCards() {
 	let bookPropertiesArr = [obj.title, obj.author, obj.pages, obj.read];
 	let card = document.createElement("div");
 	card.classList.add("flex", "card");
+	card.setAttribute("data-id", obj.id);
 	mainDiv.insertBefore(card, addBookButton);
 
 	for (let i = 0; i < 4; i++) {
@@ -98,6 +109,7 @@ function createBookCards() {
 			deleteButton.classList.add("card-button", "card-button-delete");
 			cardLine.appendChild(deleteButton);
 			deleteButton.textContent = "Delete";
+			deleteButton.addEventListener("click", deleteBook);
 			break;
 		}
 		let cardLineLeft = document.createElement("span");
