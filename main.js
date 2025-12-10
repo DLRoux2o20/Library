@@ -71,9 +71,9 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function deleteBook(event) {
-	let deletedCard = event.target.parentElement.parentElement;
-	myLibrary.splice(myLibrary.findIndex((book) => book.id === deletedCard.dataset.id), 1);
-	console.log(myLibrary);
+	let cardToDelete = event.target.parentElement.parentElement;
+	myLibrary.splice(myLibrary.findIndex((book) => book.id === cardToDelete.dataset.id), 1);
+	cardToDelete.remove();
 }
 
 function createBookCards() {

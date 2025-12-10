@@ -290,7 +290,8 @@ a {
 
 #main-div {
 	width: 100%;
-	padding: 2em;
+	padding-inline: 2em;
+	padding-top: 3em;
 	padding-bottom: 4em;
 	grid-template: 300px / repeat(auto-fit, minmax(300px, 500px));
 	grid-auto-rows: 300px;
