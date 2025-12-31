@@ -49,31 +49,30 @@ function submitForm(event) {
 	createBookCards();
 }
 
-function Book(title, author, pages, read) {
-	if (!new.target) {
-		throw Error("Must use 'new' operator to call constructor");
+class Book {
+	constructor(title, author, pages, read) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read ? "Read" : "Not Read";
+		this.id = crypto.randomUUID();
 	}
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read ? "Read" : "Not Read";
-	this.id = crypto.randomUUID();
+
+	switchReadStatus(cardOfObjToSwitch, readButton) {
+		let objToSwitch =
+			myLibrary[
+				myLibrary.findIndex((book) => book.id === cardOfObjToSwitch.dataset.id)
+			];
+
+		if (objToSwitch.read === "Not Read") {
+			objToSwitch.read = "Read";
+			readButton.innerHTML = "<i class='fa-solid fa-check'></i> Read";
+		} else {
+			objToSwitch.read = "Not Read";
+			readButton.innerHTML = "<i class='fa-solid fa-x'></i> Not Read";
+		}
+	}
 }
-
-Book.prototype.switchReadStatus = function (cardOfObjToSwitch, readButton) {
-	let objToSwitch =
-		myLibrary[
-			myLibrary.findIndex((book) => book.id === cardOfObjToSwitch.dataset.id)
-		];
-
-	if (objToSwitch.read === "Not Read") {
-		objToSwitch.read = "Read";
-		readButton.innerHTML = "<i class='fa-solid fa-check'></i> Read";
-	} else {
-		objToSwitch.read = "Not Read";
-		readButton.innerHTML = "<i class='fa-solid fa-x'></i> Not Read";
-	}
-};
 
 function addBookToLibrary(title, author, pages, read) {
 	let book = new Book(title, author, pages, read);
